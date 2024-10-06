@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 function HomePage() {
   return (
@@ -16,7 +16,7 @@ alt="apple-icon"
 className='h-5'
 />التسجيل باستخدام Apple</button>
 <div className="divider divider-neutral">أو</div>
-<button className='btn bg-[#1a8cd8] text-white rounded-full w-full hover:bg-slate-600'>إنشاء حساب</button>
+<button onClick={()=>{setWindows(true)}} className='btn bg-[#1a8cd8] text-white rounded-full w-full hover:bg-slate-600'>إنشاء حساب</button>
 
 <small>بالتسجيل، أنت توافق على <a href="#" className='text-[#1a8cd8]'>شروط الخدمة</a>
 و<a href="#" className='text-[#1a8cd8]' >سياسة الخصوصية</a>
