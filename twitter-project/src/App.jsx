@@ -4,6 +4,7 @@ import Happen from './pages/Happen'
 import Home from './pages/Home'
 import HomePage from './pages/HomePage'
 import Signup from './pages/Signup'
+import Suggestions from './pages/Suggestions'
 
 function App() {
 
@@ -13,7 +14,8 @@ function App() {
      {/* <Signup/> */}
      {/* <NavBar/> */}
      {/* <Home/> */}
-     <Happen/>
+     {/* <Happen/> */}
+     <Suggestions/>
     </>
   )
 }
