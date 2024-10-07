@@ -44,6 +44,55 @@ setName(res.data.username)
 })
 
 },[id])
+
+const deleteTweet =(tweetid)=>{
+     
+        const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+              confirmButton: "btn btn-success",
+              cancelButton: "btn btn-danger"
+            },
+            buttonsStyling: false
+          });
+          swalWithBootstrapButtons.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: "Yes, delete it!",
+            cancelButtonText: "No, cancel!",
+            reverseButtons: true
+          }).then((result) => {
+            if (result.isConfirmed) {
+                axios.delete(`https://66e7e69bb17821a9d9da6eb2.mockapi.io/comment/${tweetid}`)
+                .then(res=>{
+                    console.log(res.data);
+              swalWithBootstrapButtons.fire({
+                title: "Deleted!",
+                text: "Your file has been deleted.",
+                icon: "success"
+              });
+              setcomment(comment.filter(e=>e.id !== tweetid))
+            })  .catch((error) => {
+                console.error("There was an error deleting the tweet!", error);
+            })
+
+            } else if (
+              /* Read more about handling dismissals below */
+              result.dismiss === Swal.DismissReason.cancel
+            ) {
+              swalWithBootstrapButtons.fire({
+                title: "Cancelled",
+                text: "Your imaginary file is safe :)",
+                icon: "error"
+              });
+            }
+        })
+    
+}
+
+
+
   return (
     <div className='flex flex-wrap justify-center'>
             <div dir="rtl" className="pr-4 w-96">
@@ -85,7 +134,7 @@ setName(res.data.username)
 </div>
 <Suggestions />
 </div>
-<div className="container w-1/3 border-r border-l border-primary">
+<div className="container w-1/3 border-r border-l border-primary" >
                 <div role="tablist" className="tabs tabs-bordered">
                     <a role="tab" className="tab">المتابعون</a>
                     <a role="tab" className="tab tab-active">لك</a>
@@ -131,7 +180,7 @@ setName(res.data.username)
                     </div>
                     <hr />
 
-                    <div>
+                    <div className=''style={{ height: '100vh', overflow: 'auto' }}>
                         {comment.map((e)=>{
                             return(
                             <ul key={e.id}>
@@ -140,7 +189,7 @@ setName(res.data.username)
 <details className="dropdown bg-slate-100 relative w-full">
   <summary className="btn m-1 bg-black border-black absolute left-0 -top-20 font-bold text-xl">...</summary>
   <ul className="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow absolute left-0 -top-10 ">
-    <li><a>حذف</a></li>
+    <li><a onClick={()=>deleteTweet(e.id)}>حذف</a></li>
   </ul>
 </details>
 <p>{e.tweet}</p>
