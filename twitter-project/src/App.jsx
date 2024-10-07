@@ -14,10 +14,10 @@ function App() {
      {/* <HomePage/> */}
      {/* <Signup/> */}
      {/* <NavBar/> */}
-     {/* <Home/> */}
+     <Home/>
      {/* <Happen/> */}
      {/* <Suggestions/> */}
-     <UserPage/>
+     {/* <UserPage/> */}
     </>
   )
 }

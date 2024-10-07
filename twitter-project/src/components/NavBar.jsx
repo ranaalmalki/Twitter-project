@@ -1,5 +1,9 @@
+import { useState } from "react"
+import { Link } from "react-router-dom"
+import UserPage from "../pages/UserPage"
 
 function NavBar() {
+    const [clickindex ,setClickIndex]=useState(0)
   return (
     <div dir="rtl" className="flex h-screen">
         <ul className="menu  rounded-box w-56 justify-evenly bg-black">
@@ -8,13 +12,15 @@ function NavBar() {
             src="https://freepnglogo.com/images/all_img/1725374683twitter-x-logo.png"
             className="h-16 w-20"
             /></li>
-  <li>
-    <a>
+  <li onClick={()=>{setClickIndex(0)}} className={clickindex===0?"bg-white":"none"}>
+    <Link to="/Home" >
+<a>
     <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" className="bi bi-house-door-fill h-5 w-5" viewBox="0 0 16 16">
   <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5"/>
 </svg>
       الرئيسية
-    </a>
+      </a>
+    </Link>
   </li>
   <li>
     <a>
@@ -65,13 +71,15 @@ function NavBar() {
       Premium
     </a>
   </li>
-  <li>
+  <li onClick={()=>{setClickIndex(1)}} className={clickindex === 1?"bg-white":"none"}>
+    <Link to="/userpage" >
     <a>
     <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="bi bi-person h-5 w-5" viewBox="0 0 16 16">
   <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"/>
 </svg>
       الملف الشخصي
-    </a>
+      </a>
+    </Link>
   </li>
   <li>
     <a>
