@@ -2,7 +2,7 @@
 function Suggestions() {
   return (
     <div dir="rtl">
-        <div className="border w-96 rounded-3xl">
+        <div className="border w-96 rounded-3xl p-4">
             <h1 className="text-2xl font-bold pb-6">اقتراحات المتابعة
             </h1>
             <ul className="">

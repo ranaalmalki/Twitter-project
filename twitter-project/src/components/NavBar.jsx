@@ -1,8 +1,13 @@
 
 function NavBar() {
   return (
-    <div dir="rtl">
-        <ul className="menu bg-base-200 rounded-box w-56">
+    <div dir="rtl" className="flex h-screen">
+        <ul className="menu  rounded-box w-56 justify-evenly bg-black">
+            <li><img 
+            
+            src="https://freepnglogo.com/images/all_img/1725374683twitter-x-logo.png"
+            className="h-16 w-20"
+            /></li>
   <li>
     <a>
     <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" className="bi bi-house-door-fill h-5 w-5" viewBox="0 0 16 16">

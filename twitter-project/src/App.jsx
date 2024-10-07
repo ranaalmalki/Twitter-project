@@ -5,6 +5,7 @@ import Home from './pages/Home'
 import HomePage from './pages/HomePage'
 import Signup from './pages/Signup'
 import Suggestions from './pages/Suggestions'
+import UserPage from './pages/UserPage'
 
 function App() {
 
@@ -15,7 +16,8 @@ function App() {
      {/* <NavBar/> */}
      {/* <Home/> */}
      {/* <Happen/> */}
-     <Suggestions/>
+     {/* <Suggestions/> */}
+     <UserPage/>
     </>
   )
 }
