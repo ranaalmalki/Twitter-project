@@ -3,6 +3,7 @@ import NavBar from './components/NavBar'
 import Happen from './pages/Happen'
 import Home from './pages/Home'
 import HomePage from './pages/HomePage'
+import Login from './pages/Login'
 import Signup from './pages/Signup'
 import Suggestions from './pages/Suggestions'
 import UserPage from './pages/UserPage'
@@ -14,10 +15,11 @@ function App() {
      {/* <HomePage/> */}
      {/* <Signup/> */}
      {/* <NavBar/> */}
-     <Home/>
+     {/* <Home/> */}
      {/* <Happen/> */}
      {/* <Suggestions/> */}
      {/* <UserPage/> */}
+     <Login/>
     </>
   )
 }

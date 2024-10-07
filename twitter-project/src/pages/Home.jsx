@@ -1,7 +1,7 @@
 import NavBar from "../components/NavBar"
 import Happen from "./Happen"
 import Suggestions from "./Suggestions"
-
+import { Link } from "react-router-dom"
 function Home() {
     return (
         <div className="flex flex-wrap justify-center ">
@@ -40,7 +40,7 @@ function Home() {
 
                         </li>
                     </ul>
-                    <a href="#" className="link link-[] ">عرض المزيد</a>
+                    <Link to="/happen" className="link link-[] ">عرض المزيد</Link>
                 </div>
                 <Suggestions />
             </div>

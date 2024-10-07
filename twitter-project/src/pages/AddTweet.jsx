@@ -1,7 +1,49 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import NavBar from '../components/NavBar'
 import Suggestions from './Suggestions'
+import axios from 'axios'
+import { useParams } from 'react-router-dom'
 function AddTweet() {
+const [name , setName]=useState("")
+const [inputTweet ,setInputTweet] = useState("")
+const [comment ,setcomment]=useState([])
+const {id}=useParams()
+
+const tweetinput =(e)=>{
+    setInputTweet(e.target.value)
+
+    }
+
+    const send =()=>{
+        axios.post(`https://66e7e69bb17821a9d9da6eb2.mockapi.io/comment`,{
+            tweet: inputTweet,
+    userId:id
+        }).then((res)=>{
+            console.log(res.data);
+            setInputTweet("")
+        })
+    }
+    
+       
+
+
+    useEffect(()=>{
+        axios.get(`https://66e7e69bb17821a9d9da6eb2.mockapi.io/login/${id}`)
+.then((res)=>{
+console.log(res.data);
+setName(res.data.username)
+})
+
+
+
+    axios.get(`https://66e7e69bb17821a9d9da6eb2.mockapi.io/comment?userId=${id}`)
+.then((res)=>{
+    console.log(res.data);
+    setcomment(res.data)
+    
+})
+
+},[id])
   return (
     <div className='flex flex-wrap justify-center'>
             <div dir="rtl" className="pr-4 w-96">
@@ -54,7 +96,7 @@ function AddTweet() {
                         src="https://cdn-icons-png.flaticon.com/512/9203/9203764.png"
                     />
 
-                    <textarea placeholder="ماذا يحدث؟" />
+                    <textarea placeholder="ماذا يحدث؟" onChange={tweetinput} value={inputTweet} required/>
                     <hr />
                     <div className="flex flex-wrap gap-6">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-card-image" viewBox="0 0 16 16">
@@ -81,12 +123,27 @@ function AddTweet() {
                             <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10" />
                             <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
                         </svg>
-                        <button className="btn bg-[#1a8cd8] rounded-full">نشر</button>
+                        <button className="btn bg-[#1a8cd8] rounded-full" onClick={send}>نشر</button>
 
+                    </div>
+                    <div>
+                        {comment.map((e)=>{
+                            return(
+                            <ul key={e.id}>
+                                <li>
+                                {e.tweet}
+
+                                </li>
+                            
+                            
+                            </ul>
+)
+                        })}
+                        
                     </div>
                 </div>
             </div>
-            <NavBar/>
+            <NavBar name={name}/>
 
     </div>
   )

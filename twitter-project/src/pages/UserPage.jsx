@@ -1,7 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import NavBar from '../components/NavBar'
 import Suggestions from './Suggestions'
+import { Link, useParams } from 'react-router-dom'
+import axios from 'axios'
+
 function UserPage() {
+    const {name} = useParams()
+
+
     return (
         <div className='flex flex-wrap justify-center' >
             <div dir="rtl" className="pr-4 w-96">
@@ -33,7 +39,7 @@ function UserPage() {
 
                         </li>
                     </ul>
-                    <a href="#" className="link link-[] ">عرض المزيد</a>
+                    <Link to="/happen" className="link link-[] ">عرض المزيد</Link>
                 </div>
                 <Suggestions />
             </div>
@@ -43,7 +49,7 @@ function UserPage() {
                         <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8" />
                     </svg>
                     <div>
-                        <h1 className='font-bold'>Rana Almalki</h1>
+                        <h1 className='font-bold'>{}</h1>
                         <p>0 منشور </p>
                     </div>
                 </div>
@@ -58,10 +64,10 @@ function UserPage() {
                     />
                     <button className='btn btn-outline rounded-full relative -left-96 top-4'>تعديل الملف الشخصي</button>
                     <div className='flex gap-3  pt-20'>
-                        <h1 className='font-bold text-2xl'>Rana almalki</h1>
+                        <h1 className='font-bold text-2xl'>{name}</h1>
                         <button className='btn btn-outline rounded-full'>وثق حسابك</button>
                     </div>
-                    <p>Rana23456789@</p>
+                    <p>{name}@</p>
                     <p>انضم في اكتوبر 2024</p>
                     <ul className='flex gap-2'>
 
@@ -141,7 +147,7 @@ function UserPage() {
 
                 </div>
             </div>
-            <NavBar />
+            <NavBar  name={name}/>
         </div>
     )
 }

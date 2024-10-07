@@ -1,9 +1,49 @@
+import axios from "axios"
+import { useState } from "react"
 
-function Signup() {
+function Signup(props) {
+    const [inputEmail,setInputEmail]=useState("")
+    const [inputName , setInputName] =useState("")
+    const [inputPassword,setInputPassword]=useState("")
+
+
+    const emailinput =(e)=>{
+        setInputEmail(e.target.value)
+
+    }
    
+const nameinput =(e)=>{
+    setInputName(e.target.value)
+
+}
+
+const passwordinput =(e)=>{
+    setInputPassword(e.target.value)
+}
+
+
+const handleSubmit = (e)=>{
+    e.preventDefault()
+    axios.post("https://66e7e69bb17821a9d9da6eb2.mockapi.io/login",{
+        email: inputEmail,
+        username: inputName,
+        password: inputPassword,
+
+        
+    }).then((res)=>{
+        console.log(res.data);
+        setInputEmail("")
+        setInputName("")
+        setInputPassword("")
+        
+    }) .catch(function (error) {
+        console.log(error);
+      });
+}
+
 
   return (
-    <div dir="rtl">
+    <div dir="rtl" className="p-20">
         
         <div className="card">
             <div className="card-body">
@@ -11,6 +51,7 @@ function Signup() {
                     إنشاء حساب
 
                 </div>
+                <form onSubmit={handleSubmit}>
                 <label className="input input-bordered flex items-center gap-2">
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -22,7 +63,7 @@ function Signup() {
     <path
       d="M15 6.954 8.978 9.86a2.25 2.25 0 0 1-1.956 0L1 6.954V11.5A1.5 1.5 0 0 0 2.5 13h11a1.5 1.5 0 0 0 1.5-1.5V6.954Z" />
   </svg>
-  <input type="text" className="grow" placeholder="البريد الإلكتروني" />
+  <input type="text" className="grow" placeholder="البريد الإلكتروني" onChange={emailinput} value={inputEmail} required/>
 </label>
 <label className="input input-bordered flex items-center gap-2">
   <svg
@@ -33,7 +74,7 @@ function Signup() {
     <path
       d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM12.735 14c.618 0 1.093-.561.872-1.139a6.002 6.002 0 0 0-11.215 0c-.22.578.254 1.139.872 1.139h9.47Z" />
   </svg>
-  <input type="text" className="grow" placeholder="الاسم" />
+  <input type="text" className="grow" placeholder="الاسم" onChange={nameinput} value={inputName} required/>
 </label>
 <label className="input input-bordered flex items-center gap-2">
   <svg
@@ -46,12 +87,16 @@ function Signup() {
       d="M14 6a4 4 0 0 1-4.899 3.899l-1.955 1.955a.5.5 0 0 1-.353.146H5v1.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-2.293a.5.5 0 0 1 .146-.353l3.955-3.955A4 4 0 1 1 14 6Zm-4-2a.75.75 0 0 0 0 1.5.5.5 0 0 1 .5.5.75.75 0 0 0 1.5 0 2 2 0 0 0-2-2Z"
       clipRule="evenodd" />
   </svg>
-  <input type="password" className="grow" value="password" />
+  <input type="password" className="grow" value={inputPassword} onChange={passwordinput}  required/>
 </label>
-<h3 className="font-bold">تاريخ الميلاد</h3>
+{/* <h3 className="font-bold">تاريخ الميلاد</h3>
 <p>لن يظهر هذا علنًا. أكّد عمرك، حتى إذا كان هذا الحساب خاصًا بنشاط تجاري أو حيوان أليف أو أي شيء آخر.</p>
 
-<input type="date" id="birthday" name="birthday"></input>
+<input type="date" id="birthday" name="birthday"></input> */}
+
+<button className="btn" type="submit">sign up </button>
+</form>
+<button className="btn btn-warning" onClick={props.toggle}>إغلاق</button>
             </div>
 
         </div>
