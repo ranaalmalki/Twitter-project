@@ -20,13 +20,7 @@ function UserPage() {
                     <input type="text" className="grow " placeholder="بحث" />
 
                 </label>
-                <div className="border rounded-lg">
-                    <h1>الاشتراك في Premium</h1>
-                    <p>اشترك لاكتشاف ميزات جديدة وفي حال كنت مؤهلًا، ستتسلّم حصة من إيرادات الإعلانات.</p>
-                    <button className="btn rounded-full bg-[#1a8cd8]">اشتراك</button>
-
-                </div>
-                <div className="border rounded-3xl p-4 w-full">
+                <div className="border border-secondary rounded-3xl p-4 w-full mt-4">
                     <h1 className="text-2xl font-bold pb-6">ماذا يحدث
                     </h1>
                     <ul className="">

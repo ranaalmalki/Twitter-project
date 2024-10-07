@@ -4,8 +4,8 @@ import Suggestions from "./Suggestions"
 
 function Home() {
     return (
-        <div className="flex justify-center ">
-            <div dir="rtl" className="pr-4">
+        <div className="flex flex-wrap justify-center ">
+            <div dir="rtl" className="pr-4 w-96">
 
                 <label className="input input-bordered flex items-center gap-2 rounded-full">
                     <svg
@@ -21,13 +21,13 @@ function Home() {
                     <input type="text" className="grow " placeholder="بحث" />
 
                 </label>
-                <div className="border rounded-lg">
+                <div className="border border-secondary rounded-lg mt-6">
                     <h1>الاشتراك في Premium</h1>
                     <p>اشترك لاكتشاف ميزات جديدة وفي حال كنت مؤهلًا، ستتسلّم حصة من إيرادات الإعلانات.</p>
                     <button className="btn rounded-full bg-[#1a8cd8]">اشتراك</button>
 
                 </div>
-                <div className="border rounded-3xl p-4 w-full">
+                <div className="border rounded-3xl p-4 w-full mt-6">
                     <h1 className="text-2xl font-bold pb-6">ماذا يحدث
                     </h1>
                     <ul className="">

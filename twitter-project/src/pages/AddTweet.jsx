@@ -3,8 +3,8 @@ import NavBar from '../components/NavBar'
 import Suggestions from './Suggestions'
 function AddTweet() {
   return (
-    <div className='flex justify-center'>
-            <div dir="rtl" className="pr-4">
+    <div className='flex flex-wrap justify-center'>
+            <div dir="rtl" className="pr-4 w-96">
 
 <label className="input input-bordered flex items-center gap-2 rounded-full">
     <svg
@@ -20,13 +20,13 @@ function AddTweet() {
     <input type="text" className="grow " placeholder="بحث" />
 
 </label>
-<div className="border rounded-lg">
+<div className="border rounded-lg border-secondary mt-6">
     <h1>الاشتراك في Premium</h1>
     <p>اشترك لاكتشاف ميزات جديدة وفي حال كنت مؤهلًا، ستتسلّم حصة من إيرادات الإعلانات.</p>
     <button className="btn rounded-full bg-[#1a8cd8]">اشتراك</button>
 
 </div>
-<div className="border rounded-3xl p-4 w-full">
+<div className="border border-secondary rounded-3xl p-4 w-full mt-4">
     <h1 className="text-2xl font-bold pb-6">ماذا يحدث
     </h1>
     <ul className="">
@@ -43,7 +43,7 @@ function AddTweet() {
 </div>
 <Suggestions />
 </div>
-<div className="container w-1/3">
+<div className="container w-1/3 border-r border-l border-primary">
                 <div role="tablist" className="tabs tabs-bordered">
                     <a role="tab" className="tab">المتابعون</a>
                     <a role="tab" className="tab tab-active">لك</a>
