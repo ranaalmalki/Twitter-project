@@ -17,7 +17,7 @@ const Router = createBrowserRouter(
             element: <AddTweet/>
         },
         {
-path:"/userpage/:name",
+path:"/userpage/:user",
 element:<UserPage/>
         },{
 
@@ -26,7 +26,7 @@ element:<UserPage/>
         },
         {
 
-            path:"/addtwett/:id",
+            path:"/addtwett/:user",
             element:<AddTweet/>
         }
 

@@ -24,7 +24,7 @@ const handleSubmit =(e)=>{
         res.data.map((e)=>{
             if(inputName === e.username && inputPassword === e.password ){
                 alert("wellcom")
-                navigate(`/addtwett/${e.id}`)
+                navigate(`/addtwett/${e.username}`)
             }
         })
        
