@@ -3,8 +3,9 @@ import App from "../App"
 import AddTweet from "../pages/AddTweet"
 import UserPage from "../pages/UserPage"
 import Happen from "../pages/Happen"
+import LikesPage from "../pages/LikesPage"
 
-const Router = createBrowserRouter( 
+const Router = createBrowserRouter(
     [
 
 
@@ -14,23 +15,29 @@ const Router = createBrowserRouter(
         },
         {
             path: "/home",
-            element: <AddTweet/>
+            element: <AddTweet />
         },
         {
-path:"/userpage/:user",
-element:<UserPage/>
-        },{
+            path: "/userpage/:user",
+            element: <UserPage />
+        }, {
 
-            path:"/happen",
-            element:<Happen/>
+            path: "/happen",
+            element: <Happen />
         },
         {
 
-            path:"/addtwett/:user",
-            element:<AddTweet/>
+            path: "/addtwett/:user",
+            element: <AddTweet />
+        }
+        ,
+        {
+
+            path: "/likes/:user",
+            element: <LikesPage />
         }
 
     ]
-  
+
 )
 export default Router

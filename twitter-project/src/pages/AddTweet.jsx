@@ -30,15 +30,10 @@ function AddTweet() {
             username: user,
 
         }).then((res) => {
-            console.log("////////////////////////////////////////");
+            console.log(res.data);
+            
+            setcomment(prevComments => [res.data, ...prevComments]);
 
-            console.log(user);
-
-            console.log(inputTweet);
-            console.log("////////////////////////////////////////");
-
-
-            console.log(res.data + "؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟");
             setInputTweet("")
         })
     }
@@ -136,16 +131,16 @@ function AddTweet() {
                     <input type="text" className="grow " placeholder="بحث" />
 
                 </label>
-                <div className="border rounded-lg border-secondary mt-6">
-                    <h1>الاشتراك في Premium</h1>
+                <div className="border rounded-lg border-secondary mt-6 p-4">
+                    <h1 className='font-bold text-xl'>الاشتراك في Premium</h1>
                     <p>اشترك لاكتشاف ميزات جديدة وفي حال كنت مؤهلًا، ستتسلّم حصة من إيرادات الإعلانات.</p>
                     <button className="btn rounded-full bg-[#1a8cd8]">اشتراك</button>
 
                 </div>
-                <div className="border border-secondary rounded-3xl p-4 w-full mt-4">
+                <div className="border border-secondary rounded-3xl p-4 w-full mt-4 mb-4">
                     <h1 className="text-2xl font-bold pb-6">ماذا يحدث
                     </h1>
-                    <ul className="">
+                    <ul className=" ">
                         <li className="flex flex-wrap  justify-between flex-col">
                             <p className="flex justify-between">المتداول في المملكة العربية السعودية<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="bi bi-three-dots h-5" viewBox="0 0 16 16">
                                 <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3" />
@@ -156,8 +151,10 @@ function AddTweet() {
                         </li>
                     </ul>
                     <a href="#" className="link link-[] ">عرض المزيد</a>
+                    
                 </div>
-                <Suggestions />
+                    <Suggestions />
+
             </div>
             <div className="container w-1/3 border-r border-l border-primary" >
                 <div role="tablist" className="tabs tabs-bordered">
