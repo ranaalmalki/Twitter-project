@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Signup from './Signup'
+import { Link} from "react-router-dom"
 
 function HomePage() {
     const [windows,setWindows]=useState(false)
