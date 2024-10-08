@@ -19,10 +19,11 @@ function AddTweet() {
     }
 
     const toggleClick = (tweetId) => {
-        setClick(prevClicks => ({
-            ...prevClicks,
-            [tweetId]: !prevClicks[tweetId]
-        }));
+        setClick(prevClicks =>  {
+            const newClickState = { ...prevClicks, [tweetId]: !prevClicks[tweetId] };
+            localStorage.setItem('heartState', JSON.stringify(newClickState)); // حفظ الحالة
+            return newClickState;
+    });
     }
     const send = () => {
         axios.post(`https://66e7e69bb17821a9d9da6eb2.mockapi.io/comment`, {
@@ -54,10 +55,10 @@ function AddTweet() {
             .then((res) => {
                 console.log(res.data);
                 setcomment(res.data)
-
-                const iclick = {}
+                const savedHeartState = JSON.parse(localStorage.getItem('heartState')) || {};
+                const initialClickState = {};
                 res.data.forEach((e) => {
-                    iclick[e.username] = false
+                    initialClickState[e.id] = savedHeartState[e.id] || false;
                 })
                 setClick(iclick)
 

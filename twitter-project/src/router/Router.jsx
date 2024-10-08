@@ -4,6 +4,7 @@ import AddTweet from "../pages/AddTweet"
 import UserPage from "../pages/UserPage"
 import Happen from "../pages/Happen"
 import LikesPage from "../pages/LikesPage"
+import Login from "../pages/Login"
 
 const Router = createBrowserRouter(
     [
@@ -36,6 +37,13 @@ const Router = createBrowserRouter(
             path: "/likes/:user",
             element: <LikesPage />
         }
+        ,
+        {
+
+            path: "/login",
+            element: <Login />
+        }
+
 
     ]
 
