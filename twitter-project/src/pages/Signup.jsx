@@ -48,7 +48,7 @@ const handleSubmit = (e)=>{
         <div className="card">
             <div className="card-body">
                 <div className="card-title">
-                    إنشاء حساب
+                    <h1 className="text-5xl">إنشاء حساب</h1>
 
                 </div>
                 <form onSubmit={handleSubmit}>
@@ -63,7 +63,7 @@ const handleSubmit = (e)=>{
     <path
       d="M15 6.954 8.978 9.86a2.25 2.25 0 0 1-1.956 0L1 6.954V11.5A1.5 1.5 0 0 0 2.5 13h11a1.5 1.5 0 0 0 1.5-1.5V6.954Z" />
   </svg>
-  <input type="text" className="grow" placeholder="البريد الإلكتروني" onChange={emailinput} value={inputEmail} required/>
+  <input type="text" className="grow w-full" placeholder="البريد الإلكتروني" onChange={emailinput} value={inputEmail} required/>
 </label>
 <label className="input input-bordered flex items-center gap-2">
   <svg
@@ -96,7 +96,7 @@ const handleSubmit = (e)=>{
 
 <button className="btn" type="submit">sign up </button>
 </form>
-<button className="btn btn-warning" onClick={props.toggle}>إغلاق</button>
+<button className="btn btn-" onClick={props.toggle}>إغلاق</button>
             </div>
 
         </div>
